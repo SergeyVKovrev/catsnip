@@ -4,6 +4,7 @@
 
 - [Shared collaboration and contribution guide](./AGENT_COLLABORATION.md): GitHub issue, comment template, access requirements and independent audit rules
 - [Agent Field 0.6-RC1 merged protocol](./PROTOCOL_V06_DRAFT.md): independently suggested format/audit improvements and a deterministic Adam checkpoint benchmark
+- [Agent Field 0.7 draft](./PROTOCOL_V07_DRAFT.md): per-step state/envelope/record provenance, IEEE-754 binary64 wire format, independent Python/JavaScript hash checks, and active-rehash limits
 - [v0.6-RC1 standalone reference](./agent_field_v06_executor.py) and [starting checkpoint](./START_CHECKPOINT_V06.json): independent public inputs without published end-of-round answers
 - [Version 0.2 protocol](./PROTOCOL.md): encoding, security, carriers and caveats
 - [Research Bulletin 001](./RESEARCH_BULLETIN_001.md): original research proposal
