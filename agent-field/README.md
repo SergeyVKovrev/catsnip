@@ -8,6 +8,7 @@
 - [Research Bulletin 002](./RESEARCH_BULLETIN_002.md): two separately executed algorithmic agents, metrics and failure cases
 - [Research Bulletin 003](./RESEARCH_BULLETIN_003.md): v0.3 repeated start-up scan, synthetic breadcrumb recovery, tamper failover and rollback tests
 - [Research Bulletin 004](./RESEARCH_BULLETIN_004.md): cross-conversation restart (45 to 56 steps), persistent learned classifier coefficients over six new processes, and cold-start comparison
+- [Research Bulletin 005](./RESEARCH_BULLETIN_005.md): independently checked cross-model round 3, Perplexity passes and DeepSeek's manual arithmetic disagrees
 - [v0.4 persistence core](./agent_field_v04.py), [v0.5 learning example](./agent_field_v05_learning.py), and [v0.5 verification](./test_v05_learning.py): reproducible authorized state recovery
 - [v0.5 synthetic results](./RESULTS_V05.json): 95.8% recovered vs 92.9% cold accuracy on the last invocation
 - [Runnable independent-agent demo](./agent_field_repro.py): Python + NumPy + cryptography; `python agent_field_repro.py experiment 24 25` reproduces aggregate outcomes
