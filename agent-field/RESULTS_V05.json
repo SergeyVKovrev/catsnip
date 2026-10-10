@@ -1,0 +1,48 @@
+{
+  "version": "0.5",
+  "date": "2026-10-10",
+  "status": "Measured in a local synthetic six-process experiment; not a cross-LLM interaction.",
+  "task": "Online logistic binary classifier with 4 synthetic features; deterministic example stream and separate 1000-example holdout",
+  "processes": 6,
+  "examples_per_process": 40,
+  "holdout": 1000,
+  "cumulative_samples": [
+    40,
+    80,
+    120,
+    160,
+    200,
+    240
+  ],
+  "accuracy_persistent": [
+    0.925,
+    0.926,
+    0.932,
+    0.951,
+    0.949,
+    0.958
+  ],
+  "accuracy_new_process_cold_on_its_40_samples": [
+    0.925,
+    0.889,
+    0.948,
+    0.941,
+    0.938,
+    0.929
+  ],
+  "found_prior_state": [
+    false,
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "last_process_accuracy_gain_percentage_points": 2.9,
+  "two_authenticated_replicas_per_generation": true,
+  "all_processes_retained_origin": true,
+  "fresh_separate_workspace_has_new_origin": true,
+  "origin_identifiers_not_published": true,
+  "location": "User-approved file-backed mmap, no real RAM, crash dump, disk residue or other users' data",
+  "evaluation_notice": "One single illustrative task, no claim of universal benefit; cold-start did better in process 3."
+}
