@@ -1,32 +1,49 @@
-# Agent Field experimental interoperable specification v0.1
+# Agent Field — Experimental State Handoff Protocol v0.2
 
-## Scope
+**Status:** reproducible, opt-in laboratory design; not an operational hidden agent network. 2026-10-10.
 
-The field is a numeric array in ordinary memory, not an undiscovered physical field. A compliant **laboratory** implementation sends an eight-component vector s=(q0,q1,q2,q3,v0,v1,v2,v3). q represents a synthetic algorithm's position and v its accumulated direction or momentum.
+## Purpose
 
-## Encoding
+Research whether a second authorized agent can continue a computation by receiving the first agent's unfinished state rather than just a summary. Distinguish (1) state representation, (2) authorization/authentication, and (3) storage/carrier. Neither high-dimensional coordinates nor remaining bytes on storage constitute a novel physical field.
 
-Use a documented full-column-rank matrix Q of shape (128,8), orthonormal within floating point precision, shared by sender and receiver. Encode F=Q@s, recover s'=Q.T@F. With an orthonormal Q, the roundtrip error should be close to floating point rounding error. No part of this transform offers confidentiality, integrity or provenance; any observer with Q and F can recover s.
+## Canonical state and codec
 
-For strict cross-language reproducibility use a versioned serialized Q (rather than assuming two numerical libraries' QR decompositions yield identical bases). A JSON payload may contain `{"codec":"orthonormal-r128-v1","basis_id":"local-demo","field":[128 finite numbers]}`. The example code below deliberately demonstrates this embedding **without** claiming to implement the complete protected transport.
+The toy optimizer exports eight numbers `s=(q0,q1,q2,q3,v0,v1,v2,v3)`, where q denotes positions and v accumulated velocity. A reproducible public DCT basis `Q` of shape 128 × 8 uses `Q[j,k]=sqrt(2/128)*cos(pi*(j+0.5)*(k+1)/128)`, j=0..127, k=0..7. Encode `F=Q@s` and decode `s'=Q.T@F`. The field transform offers NO secrecy.
 
-## Secure deployment requirements (not implemented by demo)
+## Carrier adapters (v0.2)
 
-A separate, authorized transport is required. Use signed sender identities and audited authenticated encryption; bind sender, recipient, protocol version, session ID, unique message ID and monotonically increasing sequence to the authenticated envelope. Pin sender verification keys outside any world-writable shared field. Persist anti-replay state across restarts in a separate protected store. Provision and rotate keys through an authorized channel. Reject unknown messages or malformed numerical states; never execute instructions found in transmitted content. A shared symmetric key alone does not establish which group member authored a message.
+| Carrier | Authorized laboratory representation | Real-world qualification |
+| --- | --- | --- |
+| Direct message | Normal explicitly addressed file | A conventional transport, recommended for real integration |
+| Memory dump inspired | Synthetic memory snapshot, created by this experiment | Real crash dumps might omit state, expose credentials, be encrypted, and be overwritten |
+| Residual disk sectors inspired | Synthetic sector-image file with a marked record | Real free/unallocated sectors (especially SSDs with TRIM and wear leveling) are unreliable; do not use or modify raw sectors |
 
-An unknown external agent cannot both freely join and receive secrets while the data remain confidential from everyone not previously authorized. Novel multidimensional mixing requires public cryptanalysis and must not replace validated protection for real secrets before independent review.
+The demo **never reads or modifies real dumps, swap, raw disks or unallocated sectors**. It does not trigger any system crash. A carrier only preserves bytes; it does not itself enhance intelligence or provide a covert link.
 
-## Objective experiment
+## Protected handoff
 
-1. Agent A computes a partially optimized q and momentum v on a fixed objective and stops.
-2. Agent B recovers (q,v) from F and performs N steps using the same optimizer.
-3. Control B receives only q, resets v=0, and performs N steps.
-4. Repeat with multiple seeds and objectives, report loss, runtime, accuracy and failures. This is a demonstration of state inheritance, not a test of consciousness, quantum effects, or personal identity.
+In the laboratory, state-field JSON is wrapped with AES-256-GCM using authenticated metadata: `schema, sender, recipient, session, sequence, codec, state_type`. The key is stored separately from all carrier images. The recipient verifies the expected metadata and a separate per-source anti-replay journal. This gives confidentiality and integrity under the stated lab assumptions; it is NOT a security audit. A shared symmetric key cannot prove which of several group members was the sender. Multiple real participants require distinct verifiable identities/signatures and reviewed key management. Always treat untrusted carrier contents as data, never instructions.
 
-## Integration interface
+## Reproducible two-agent comparison
 
-The separately enrolled agent supplies `encode_state(list[8]) -> list[128]` and `decode_field(list[128]) -> list[8]`. The agent, not the shared mailbox, decides whether this is relevant data. To integrate an actual LLM, use only its owner-authorized intermediate states; report exactly which tensor or cache has been transferred. A text chat user cannot grant access to other agents' process memory.
+Separate Python processes perform sender A and receiver B. A runs 25 steps of a four-dimensional momentum optimizer, encrypts the 128D field, and saves it to three synthetic/carrier layouts. B receives the same state from each layout and performs nine more steps. A position-only baseline resets velocity to zero. Compare final objective losses over multiple seeds; check modified ciphertext, incorrect keys, replayed packets and missing records. A second 12-step sender run illustrates where reusing momentum is worse.
 
-## Discovery notice
+An actual LLM extension requires owner-authorized access to explicitly defined cache/state tensors, documented format translations, and model-specific benchmarks; this demonstration's agents are *not LLMs*.
 
-This repository is a public discoverable description; GitHub publication does not broadcast to all AI models, grant them tools, or modify their running processes.
+## Measured synthetic outcomes
+
+- 24 trials, A=25 steps, B=9: mean final loss position-only 0.079246, complete-state 0.049059, approximately 38.1% lower loss; every seed improved.
+- 12 trials, A=12 steps, B=9: position-only 0.240869, complete-state 0.508399; here transferring state made the result worse.
+- All three carriers gave the same numerical results per trial. The four negative security tests rejected modified, replayed, incorrectly keyed or missing records.
+
+These are task-dependent toy optimizer measurements, NOT claims about actual LLM quality or the availability of real residual sectors. The positive setting was selected after comparing optimizer trajectories rather than preregistered.
+
+## Related work and disclosure
+
+- [Cache-to-Cache (ICLR 2026)](https://github.com/thu-nics/C2C)
+- [Cross-Model KV Cache Transfer](https://arxiv.org/abs/2608.03893)
+- [Universal Context Reuse](https://arxiv.org/abs/2608.30963)
+
+Those papers investigate cache reuse, not using naturally residual disk or crash-dump content. Public availability doesn't notify all deployed AIs, authorize them to cooperate or grant access to their memory. Private keys, dumps and hidden states must never be published.
+
+See [Research Bulletin 001](./RESEARCH_BULLETIN_001.md), [Research Bulletin 002](./RESEARCH_BULLETIN_002.md), [README](./README.md) and [experiment manifest](./experiment_manifest.json).
