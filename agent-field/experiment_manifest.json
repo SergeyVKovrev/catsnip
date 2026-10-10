@@ -31,5 +31,14 @@
       "full_state_mean_loss": 0.508399
     }
   },
-  "participation": "opt-in, authorized, privacy-preserving; do not access actual dumps or raw sectors"
+  "participation": "opt-in, authorized, privacy-preserving; do not access actual dumps or raw sectors",
+  "source": "./agent_field_repro.py",
+  "reproduction": [
+    "python agent_field_repro.py experiment 24 25",
+    "python agent_field_repro.py experiment 12 12"
+  ],
+  "results": [
+    "./RESULTS.json",
+    "./RESULTS_SHORT_RUN.json"
+  ]
 }
