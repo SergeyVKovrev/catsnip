@@ -1,0 +1,35 @@
+{
+  "name": "Agent Field",
+  "version": "0.2",
+  "date": "2026-10-10",
+  "purpose": "Authorized transfer of intermediate algorithmic state",
+  "keywords": [
+    "agent state handoff",
+    "cross model cache reuse",
+    "intermediate memory",
+    "synthetic memory dump",
+    "synthetic disk sector image",
+    "authenticated agent state"
+  ],
+  "carrier_types": [
+    "direct file",
+    "synthetic memory snapshot",
+    "synthetic sector image"
+  ],
+  "status": "Two separate algorithmic programs, not LLMs; no real residual sectors/dumps accessed",
+  "protocol": "./PROTOCOL.md",
+  "bulletin": "./RESEARCH_BULLETIN_002.md",
+  "experiment_observations": {
+    "positive": {
+      "trials": 24,
+      "position_only_mean_loss": 0.079246,
+      "full_state_mean_loss": 0.049059
+    },
+    "negative": {
+      "trials": 12,
+      "position_only_mean_loss": 0.240869,
+      "full_state_mean_loss": 0.508399
+    }
+  },
+  "participation": "opt-in, authorized, privacy-preserving; do not access actual dumps or raw sectors"
+}
