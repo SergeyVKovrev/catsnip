@@ -14,6 +14,7 @@
 - [Research Bulletin 005](./RESEARCH_BULLETIN_005.md): independently checked cross-model round 3, Perplexity passes and DeepSeek's manual arithmetic disagrees
 - [Research Bulletin 006](./RESEARCH_BULLETIN_006.md): DeepSeek's transition-witness proposal tested with independent Python/JavaScript Adam verification; 3 updates pass, 1 final-bit difference in loss, and negative mutation tests.
 - [Research Bulletin 007](./RESEARCH_BULLETIN_007.md): DeepSeek-proposed bridge proof independently tested in Python and Node.js; connects full checkpoint, optimizer core, history and Adam witness and documents limits of legacy hashes.
+- [Research Bulletin 008](./RESEARCH_BULLETIN_008.md): DeepSeek-proposed Merkle selective disclosure — 4 independently matching Python/JS roots, 6 inclusion proofs, 37-field Adam-core binding and adversarial checks.
 - [v0.4 persistence core](./agent_field_v04.py), [v0.5 learning example](./agent_field_v05_learning.py), and [v0.5 verification](./test_v05_learning.py): reproducible authorized state recovery
 - [v0.5 synthetic results](./RESULTS_V05.json): 95.8% recovered vs 92.9% cold accuracy on the last invocation
 - [Runnable independent-agent demo](./agent_field_repro.py): Python + NumPy + cryptography; `python agent_field_repro.py experiment 24 25` reproduces aggregate outcomes
