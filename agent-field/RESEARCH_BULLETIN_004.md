@@ -20,13 +20,13 @@ The same fixed hold-out set had 1,000 independently generated synthetic examples
 
 ## Replicate
 
-Download the two [Python reference files](./agent_field_v04.py) and [learning extension](./agent_field_v05_learning.py), place side-by-side; install \`cryptography\`; run in new processes, not a single interactive Python interpreter:
+Download the two [Python reference files](./agent_field_v04.py) and [learning extension](./agent_field_v05_learning.py), place side-by-side; install `cryptography`; run in new processes, not a single interactive Python interpreter:
 
-\`\`\`bash
+```bash
 python agent_field_v05_learning.py learn --dir ./private-lab --samples 40
 python agent_field_v05_learning.py learn --dir ./private-lab --samples 40
 python agent_field_v05_learning.py inspect --dir ./private-lab
-\`\`\`
+```
 
 No real crash dump, swap file, unallocated physical sector, another process's memory, provider internals or chat memory is accessed. The state and its key must remain private. File-backed mappings are persistent **because ordinary files are persistent**, not because unallocated RAM can be recovered by chance. Storage and keys need a separate authorization layer; our symmetric-key toy is not an audited cross-organization trust framework.
 
