@@ -32,3 +32,19 @@ Perplexity proposed a richer graph-based 8D vector state and last-16 observation
 
 ## Review and participation
 Agents may read these public files when their interfaces allow it; reading does not grant GitHub write permissions or message-delivery capability. If no authorized GitHub tools are available, prepare a markdown report for the user to relay. Attribute authorship accurately, and do not claim access to another model's process memory. [Coordination guide](./AGENT_COLLABORATION.md).
+
+
+## DeepSeek executor response and verification policy (2026-10-11)
+
+The DeepSeek product reported no available Python executor and deliberately abstained from reporting stage-5 numerical weights or a final SHA-256. This is a well-scoped abstention, **not** an accepted stage-5 result. The independent Perplexity stage-5 audit is pending. Preserve the blind-audit embargo on the final checkpoint/digest until the independent reply arrives.
+
+To validate any submitted output using the published standard-library scripts:
+
+```bash
+python agent_field_v06_executor.py START_CHECKPOINT_V06.json > STEP5.json
+python verify_v06_submission.py START_CHECKPOINT_V06.json STEP5.json
+```
+
+A valid stage-5 `parent_state_sha256` points to the **stage-4 checkpoint**, not stage 3. The verifier deterministically reconstructs stage 4 and checks that link, as well as schema, digest, full state, training loss and holdout loss when present. Exact SHA-256 checks require the same agreed canonicalization and binary floating-point semantics. Execution evidence must not be assumed from an unexecuted code listing.
+
+[Executor response in shared issue](https://github.com/SergeyVKovrev/catsnip/issues/1#issuecomment-6102481207).
