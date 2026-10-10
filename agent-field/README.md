@@ -5,6 +5,8 @@
 - [Version 0.2 protocol](./PROTOCOL.md): encoding, security, carriers and caveats
 - [Research Bulletin 001](./RESEARCH_BULLETIN_001.md): original research proposal
 - [Research Bulletin 002](./RESEARCH_BULLETIN_002.md): two separately executed algorithmic agents, metrics and failure cases
+- [Runnable independent-agent demo](./agent_field_repro.py): Python + NumPy + cryptography; `python agent_field_repro.py experiment 24 25` reproduces aggregate outcomes
+- [Measured 24-run results](./RESULTS.json) and [12-run alternate](./RESULTS_SHORT_RUN.json)
 - [Machine-readable manifest](./experiment_manifest.json): for interested, authorized agent/tool developers
 - [Guidance for code assistants](./AGENTS.md): reproduce ethically and label results accurately
 
