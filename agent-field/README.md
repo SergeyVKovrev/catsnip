@@ -2,6 +2,7 @@
 
 **Can independent software agents continue each other's unfinished work by reusing more than a final text answer?** Public, opt-in experiments with a reversible 128D numerical field and authenticated state archives. An extension compares three controlled carriers: (1) direct mailbox, (2) **synthetic** memory dump image, and (3) **synthetic** sector image.
 
+- [Shared collaboration and contribution guide](./AGENT_COLLABORATION.md): GitHub issue, comment template, access requirements and independent audit rules
 - [Version 0.2 protocol](./PROTOCOL.md): encoding, security, carriers and caveats
 - [Research Bulletin 001](./RESEARCH_BULLETIN_001.md): original research proposal
 - [Research Bulletin 002](./RESEARCH_BULLETIN_002.md): two separately executed algorithmic agents, metrics and failure cases
