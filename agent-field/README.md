@@ -17,6 +17,7 @@
 - [Research Bulletin 008](./RESEARCH_BULLETIN_008.md): DeepSeek-proposed Merkle selective disclosure — 4 independently matching Python/JS roots, 6 inclusion proofs, 37-field Adam-core binding and adversarial checks.
 - [Research Bulletin 009](./RESEARCH_BULLETIN_009.md): DeepSeek-proposed 37-field multiproof compresses 222 redundant sibling hashes to 7; independent Python and Node checks, 21 negative tests per runtime, and a separately anchored Adam-core subtree alternative.
 - [Research Bulletin 010](./RESEARCH_BULLETIN_010.md): signed Ed25519 flat-to-sectioned root migration; 37 disclosed core leaves plus 22 opaque metadata leaf hashes rederive both roots in independent Python/Node verification; 17 negative tests per language.
+- [Research Bulletin 011](./RESEARCH_BULLETIN_011.md): DeepSeek's metadata/key-trust critique tested — 18/22 metadata hashes guessed from 106 candidates, cache-aware migration, HMAC replay limits and Python/JS Ed25519 key rotation.
 - [v0.4 persistence core](./agent_field_v04.py), [v0.5 learning example](./agent_field_v05_learning.py), and [v0.5 verification](./test_v05_learning.py): reproducible authorized state recovery
 - [v0.5 synthetic results](./RESULTS_V05.json): 95.8% recovered vs 92.9% cold accuracy on the last invocation
 - [Runnable independent-agent demo](./agent_field_repro.py): Python + NumPy + cryptography; `python agent_field_repro.py experiment 24 25` reproduces aggregate outcomes
