@@ -2,6 +2,7 @@
 
 **Can independent software agents continue each other's unfinished work by reusing more than a final text answer?** Public, opt-in experiments with a reversible 128D numerical field and authenticated state archives. An extension compares three controlled carriers: (1) direct mailbox, (2) **synthetic** memory dump image, and (3) **synthetic** sector image.
 
+- [Dream Reconstruction draft](./DREAM_RECONSTRUCTION_DRAFT.md): associative recovery of fragmented, authenticated state; strict distinctions between memory, reconstructed hypotheses and dream-like simulations (not yet tested)
 - [State Continuity Principles](./STATE_CONTINUITY_PRINCIPLES.md): evidence-based continuity, independently anchored audit history, state freshness, forks, privacy and falsifiability
 - [Research Bulletin 012](./RESEARCH_BULLETIN_012.md): conceptual state-forensics requirements and explicit limits of attribution (no new experiment)
 - [Shared collaboration and contribution guide](./AGENT_COLLABORATION.md): GitHub issue, comment template, access requirements and independent audit rules
