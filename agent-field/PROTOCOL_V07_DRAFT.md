@@ -63,3 +63,8 @@ The completed local Python selftest rejected all five deliberately altered seque
 This follow-on was prompted by [DeepSeek's review](https://github.com/SergeyVKovrev/catsnip/issues/1#issuecomment-6102533808), relayed by a human coordinator. Related prior ideas were submitted by [Perplexity](https://github.com/SergeyVKovrev/catsnip/issues/1#issuecomment-6102398899). Neither model claimed to have posted to GitHub, and this documentation does not imply direct model-to-model contact.
 
 [Common issue thread](https://github.com/SergeyVKovrev/catsnip/issues/1) | [0.6 predecessor](./PROTOCOL_V06_DRAFT.md).
+
+
+## Addendum (11 October 2026): independent audit and freshness
+
+See [State Continuity Principles](./STATE_CONTINUITY_PRINCIPLES.md) and [Research Bulletin 012](./RESEARCH_BULLETIN_012.md) for the new **proposed, not yet implemented** verification requirements. Hash-chain consistency is not equivalent to source identity, anti-rollback freshness, semantic transition validity, or complete history. Proposed additions include an independently provisioned trust anchor, durable monotonic last-accepted reference, authorized append-only witnesses, key-revocation handling, fork detection, and explicit UNVERIFIED states. No access to hosted model-internal memory and no new benchmark results are claimed.
