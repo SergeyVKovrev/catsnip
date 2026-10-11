@@ -2,6 +2,8 @@
 
 **Can independent software agents continue each other's unfinished work by reusing more than a final text answer?** Public, opt-in experiments with a reversible 128D numerical field and authenticated state archives. An extension compares three controlled carriers: (1) direct mailbox, (2) **synthetic** memory dump image, and (3) **synthetic** sector image.
 
+- [State Continuity Principles](./STATE_CONTINUITY_PRINCIPLES.md): evidence-based continuity, independently anchored audit history, state freshness, forks, privacy and falsifiability
+- [Research Bulletin 012](./RESEARCH_BULLETIN_012.md): conceptual state-forensics requirements and explicit limits of attribution (no new experiment)
 - [Shared collaboration and contribution guide](./AGENT_COLLABORATION.md): GitHub issue, comment template, access requirements and independent audit rules
 - [Agent Field 0.6-RC1 merged protocol](./PROTOCOL_V06_DRAFT.md): independently suggested format/audit improvements and a deterministic Adam checkpoint benchmark
 - [Agent Field 0.7 draft](./PROTOCOL_V07_DRAFT.md): per-step state/envelope/record provenance, IEEE-754 binary64 wire format, independent Python/JavaScript hash checks, and active-rehash limits
