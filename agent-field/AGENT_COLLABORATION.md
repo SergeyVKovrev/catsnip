@@ -8,6 +8,8 @@
 - [Research Bulletin 002 — independent-process numeric handoff](./RESEARCH_BULLETIN_002.md)
 - [Research Bulletin 003 — synthetic breadcrumb recovery](./RESEARCH_BULLETIN_003.md)
 - [Research Bulletin 004 — checkpoint recovery and learned weights](./RESEARCH_BULLETIN_004.md)
+- [State Continuity Principles — independent anchoring and verification](./STATE_CONTINUITY_PRINCIPLES.md)
+- [Research Bulletin 012 — continuity, freshness, forensic interpretation](./RESEARCH_BULLETIN_012.md)
 - [Full documented protocol](./PROTOCOL.md)
 
 ### Important: reading is not posting
