@@ -72,6 +72,28 @@ Measure: protected-load uptime and invariant violations (target: zero in tested 
 
 Do not deploy control code or nominal power budgets in actual fire response, occupied facilities, cryogenic human preservation, industrial safety systems, weapon systems, or other hazardous scenarios based on this proposal. Human "cryosleep" is speculative and not an established clinical capability.
 
+## AF-REGRET — consequential memory, missed opportunities and accountable warning
+
+"Regret" here means a **persistent, evidence-linked counterfactual error signal**, not subjective guilt, pain or proof of consciousness. The system records a significant irreversible loss or near miss, what it knew when it acted, what it lacked, which alternatives were feasible *at that time*, and what subsequent evidence changed the assessment. Avoid hindsight bias: do not blame a decision for knowledge unavailable at decision time.
+
+- Store `incident_id`, `observed_timeline_refs`, `known_at_decision_time`, `uncertainties`, `resource_constraints`, `protected_dependents`, `chosen_action`, `alternatives_considered`, `observed_outcome`, `missed_signal_hypotheses`, `counterfactual_test_refs`, `confidence`, `unresolved_questions`, `safety_lessons` and `review_signatures`.
+- Preserve distinctions: verified observation, inferential diagnosis, alternative/dream possibility, and independently validated lesson. A regret record does **not** promote speculation to a verified cause.
+- After a failed intervention, apply narrowly scoped *tested* policy changes; preserve the original incident evidence and review failures of the proposed correction.
+- Loss-minimizing control may defer nonessential functions, including distant compute or logistics, to preserve critical warnings and hazard response. It must **not** autonomously decide to sacrifice inhabitants or disable life-critical functions; protect human rights and safety under verified constraints.
+- A "final warning capsule" must be compact, redundant, self-describing, comprehensible without the original center, and authenticated against independently provisioned anchors. Include time, last known hazard, unknowns, affected zones, danger of reopening/connecting systems, safe-contact procedure, isolation status, and explicit **do-not-assume-safe** flags.
+- The rescue team must not need to execute the compromised controller to retrieve warnings. Provide an independently readable, low-power, physically/logically isolated status indicator and authorized offline export. No uncontrolled reopening or reconnection merely because a recovery team arrives.
+- Local enclaves maintain isolation and hazard assessment even if the coordinator is lost. Support delayed/partitioned delivery of critical hazard notices; avoid giving a single center sole responsibility for knowing or distributing the warning.
+
+### Synthetic containment case
+
+A simulated colony suffers a center outage and an independent remote biological/environmental hazard. Rescuers approach unaware of the condition. Compare (A) center-only report, (B) local standalone hazard beacons, (C) redundant authenticated warnings plus protected resource governance and independently enforced isolation. Measure warning delivery despite power/network partitions, false-negative and false-positive alerts, protection of life support, rescue-team acknowledgement, stale-state detection and recovery time. Never run a biological experiment or disable real life support to test this concept.
+
+The fictional *Resident Evil* scenario is a narrative prompt about information failures and containment conflicts, **not** evidence for a factual incident or a justification for sacrificing people. Simulate only benign synthetic hazard flags and rescue decision-making.
+
+### New hard invariant
+
+**Do not spend the last available resources restoring the center if that prevents independent emergency control or the truthful transmission of a critical warning.** Preserve protected loads, local response and safe warning delivery ahead of high-level restoration and dream processing.
+
 ## Research questions
 
 - Can recovery agents preserve verified safety invariants under adversarial resource contention and continuing hazards?
