@@ -8,8 +8,8 @@ python integrity/verify_agent_field.py \
   --expected-root 0c38a4b8632364df1bfb8e7f6abf110f639f5236d4152b021733c59f01844252 \
   --repo-dir .
 
-For stronger protection against malicious additions to Markdown text, also
-supply --expected-manifest-sha256 obtained and kept outside the repository.
+Both expected-root and expected-manifest-sha256 MUST be obtained and kept
+outside the repository. A self-reported root is not an independent anchor.
 """
 import argparse
 import hashlib
@@ -115,7 +115,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repo-dir", default=".")
     parser.add_argument("--expected-root", required=True)
-    parser.add_argument("--expected-manifest-sha256", default=None)
+    parser.add_argument("--expected-manifest-sha256", required=True)
     args = parser.parse_args()
     for label, value in (("--expected-root", args.expected_root),
                          ("--expected-manifest-sha256", args.expected_manifest_sha256)):
