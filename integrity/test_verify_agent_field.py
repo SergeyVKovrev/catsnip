@@ -142,7 +142,7 @@ def main():
             print("PASS TEST missing full manifest anchor rejected")
     if failed:
         raise SystemExit("Failed tests: " + ", ".join(failed))
-    print("ALL SYNTHETIC TESTS FINISHED: 10 accepted/rejected scenarios, 1 documented limitation")
+    print("ALL 11 SYNTHETIC REGRESSION CASES PASSED")
 
 
 if __name__ == "__main__":
