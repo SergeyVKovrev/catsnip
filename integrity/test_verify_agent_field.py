@@ -134,12 +134,12 @@ def main():
         root = Path(temporary)
         expected, _ = setup(root)
         alter_both_prose(root)
-        # Important documented limitation: aggregate-only pin does not bind prose.
+        # Strict mode: absence of independently pinned manifest hash must fail.
         result = run(root, expected)
-        if result.returncode != 0:
-            failed.append("documented limitation of root-only pin")
+        if result.returncode == 0:
+            failed.append("missing external manifest anchor should fail")
         else:
-            print("EXPECTED LIMITATION aggregate-only pin allows altered Markdown prose")
+            print("PASS TEST missing full manifest anchor rejected")
     if failed:
         raise SystemExit("Failed tests: " + ", ".join(failed))
     print("ALL SYNTHETIC TESTS FINISHED: 10 accepted/rejected scenarios, 1 documented limitation")
