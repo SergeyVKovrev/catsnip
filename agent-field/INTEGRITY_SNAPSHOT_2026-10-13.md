@@ -2,6 +2,12 @@
 
 Source immutable revision: `8679520d51929fda598cf63be96a43dc412e0f12` (initial baseline captured before this manifest was added). Files in scope: **35** under `agent-field/`. This manifest and mirrors/verification scripts are deliberately out of scope for this historical snapshot to avoid circular self-hashing.
 
+**Canonical aggregate SHA-256 (35 files):**
+
+```text
+0c38a4b8632364df1bfb8e7f6abf110f639f5236d4152b021733c59f01844252
+```
+
 Each SHA-256 was calculated from retrieved text bytes; file lengths and Git blob identities were compared to the source Git tree. The canonical aggregate is the SHA-256 of UTF-8 lines `relative-path<TAB>decimal-byte-count<TAB>lowercase-sha256<LF>`, sorted by **raw path byte order**, including a final LF. The aggregate should be independently verified by a separate implementation before relying on it.
 
 **A different size or SHA-256 proves a difference from this baseline, not an attacker or malicious intent.** These values are only as trustworthy as their independent authorization and anchoring. A malicious editor can replace a file *and* both manifests; copies in one GitHub account are not independent. A snapshot of current GitHub content does not prove that earlier content was never changed. Pin an approved baseline externally using an immutable offline copy or signed independent witness. Unexpected files/deletions, unexpected commit parentage, unsigned/untrusted revisions and rollback must be reviewed before writes.
