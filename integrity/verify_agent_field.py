@@ -3,6 +3,7 @@
 
 This verifier checks data integrity *relative to externally pinned values*, not
 Git commit authorship. Run on a static local checkout, not a changing live tree.
+The historic snapshot profile rejects hardlinks, symlinks, BOM and CRLF manifests.
 
 python integrity/verify_agent_field.py \
   --expected-root 0c38a4b8632364df1bfb8e7f6abf110f639f5236d4152b021733c59f01844252 \
@@ -34,6 +35,8 @@ def read_regular(root, path):
     target = root / path
     if target.is_symlink() or not target.is_file():
         reject("Missing, non-regular or symlinked manifest: " + path)
+    if target.stat().st_nlink != 1:
+        reject("Manifest must not be a hardlink: " + path)
     return target.read_bytes()
 
 
@@ -46,10 +49,16 @@ def valid_relpath(name):
 
 
 def verify(rootdir, expected_root, expected_manifest_hash=None):
+    for dirname in ("agent-field", "integrity"):
+        directory = rootdir / dirname
+        if directory.is_symlink() or not directory.is_dir():
+            reject("Missing or symlinked repository directory: " + dirname)
     primary = read_regular(rootdir, PRIMARY)
     mirror = read_regular(rootdir, MIRROR)
     if primary != mirror:
         reject("Manifest copies disagree; do not select a winner automatically")
+    if primary.startswith(b"\xef\xbb\xbf") or b"\r" in primary:
+        reject("Manifest must be UTF-8 without BOM and use LF newlines only")
     if expected_manifest_hash and hashlib.sha256(primary).hexdigest() != expected_manifest_hash.lower():
         reject("Full Markdown manifest changed relative to independent anchor")
     try:
@@ -92,6 +101,8 @@ def verify(rootdir, expected_root, expected_manifest_hash=None):
             continue
         if not node.is_file():
             reject("Disallowed non-regular object: " + name)
+        if node.stat().st_nlink != 1:
+            reject("Hardlinked files are disallowed: " + name)
         if name not in EXCLUDED:
             actual.add(name)
     missing, extra = set(expected) - actual, actual - set(expected)
@@ -100,6 +111,8 @@ def verify(rootdir, expected_root, expected_manifest_hash=None):
         target = rootdir / name
         if target.is_symlink() or not target.is_file():
             reject("File became a symlink/nonfile: " + name)
+        if target.stat().st_nlink != 1:
+            reject("File became hardlinked: " + name)
         payload = target.read_bytes()
         if (len(payload), hashlib.sha256(payload).hexdigest()) != expected[name]:
             different.append(name)
